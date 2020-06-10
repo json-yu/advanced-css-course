@@ -6,3 +6,82 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body { /* this body element is a wrapper for the entire webpage */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px; /* gives a padding to the entire webpage */
+}
+
+.header {
+  height: 95vh;
+  /* gradients are set in background-image, since we have multiple (photo and gradient), they both are set in the same place, with what you want on top going first */
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(86, 197, 67, 0.81),
+    rgba(40, 180, 133, 0.81)), 
+    url('../img/hero.jpg'); 
+  background-size: cover; /* cover will always try to set the background image/element/viewport to be the same width as the  */
+  background-position: top; /* ensures that the top of the container stays at the top of the window during re-sizing */
+  position: relative; /* sets the origin for the .logo-box to be moved around in */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%) /* modern css property where you set coordinates (in clock-wise direction) of a polygon that you want to be seen */
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+  /* width will be automatically set by the browser */
+}
+
+.text-box {
+  position: absolute;
+  /* the top and left are in relation to the parent element, but the transform and translate is in relation to the element itself */
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.primary-heading {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.primary-heading-main {
+  display: block; /* by using block, it will automatically use up the entire width of the box it's in and that is available, and they add a line break before and after */
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.primary-heading-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+}
+
+/* Best to only animate two different properties (due to browser optimization) - the opactiy and transform properties */
+@keyframes moveInLeft{
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); 
+  }
+
+  100 % {
+    opacity: 1;
+  }
+}
